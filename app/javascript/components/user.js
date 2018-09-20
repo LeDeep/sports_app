@@ -4,9 +4,9 @@ class User extends Component {
   render() {
     return(
       <div className='user-index'>
-      <p>{this.props.first_name} {this.props.last_name}</p>
-      <p>{this.props.email}</p>
-      <p>{this.props.height_feet}'{this.props.height_inches} {this.props.weight}</p>
+        <p id='user-name'>{this.props.first_name} {this.props.last_name}</p>
+        <p id='user-email'>{this.props.email}</p>
+        <p id='user-height-weight'>{this.props.height_feet}'{this.props.height_inches} {this.props.weight}</p>
       </div>
     )
   }
