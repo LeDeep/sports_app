@@ -1,5 +1,7 @@
 import React, {Component} from "react";
-import UserIndex from './user-index';
+import Header from '../components/header';
+import Footer from '../components/footer';
+import UserIndex from '../components/user-index';
 
 var userData = [
   {name: 'Aaron Rodgers'},
@@ -25,8 +27,9 @@ class App extends Component {
   render () {
     return (
       <div>
-        <p>Sport Up Inc.</p>
+        <Header />
         <UserIndex users={this.state.users} />
+        <Footer />
       </div>
     );
   }
