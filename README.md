@@ -34,4 +34,4 @@ URL: https://your-deployed-application
 Use this section if we need to know of any special instructions necessary to run your app.
 
 ### Notes
-Use this section to communicate anything related to your process, methodology, or context which we should be aware of when evaluating your submission.
+- Setting up the frontend test framework with enzyme and jest was unreasonably cumbersome. Seemed like an easier approach, with far less configuration and added packages, should have worked. Decided to go ahead with what did work, in order to get some tests written. Will revist this section if time permits. I think the test environment can be cleaned up and simplified.
