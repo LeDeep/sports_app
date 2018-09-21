@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180921171852) do
+ActiveRecord::Schema.define(version: 20180921212818) do
 
   create_table "interests", force: :cascade do |t|
     t.integer  "user_id"
@@ -41,13 +41,6 @@ ActiveRecord::Schema.define(version: 20180921171852) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "teams_users_tables", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "team_id"
-    t.index ["team_id"], name: "index_teams_users_tables_on_team_id"
-    t.index ["user_id"], name: "index_teams_users_tables_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
