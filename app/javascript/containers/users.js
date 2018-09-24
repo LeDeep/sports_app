@@ -1,6 +1,4 @@
 import React, {Component} from "react";
-import Header from '../components/header';
-import Footer from '../components/footer';
 import UserIndex from '../components/user-index';
 
 class Users extends Component {
