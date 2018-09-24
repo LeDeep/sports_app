@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import UserProfile from '../components/user-profile';
-import InterestIndex from '../components/interest-index';
-import MembershipIndex from '../components/membership-index';
+import UserInformation from '../components/profile/user-information';
+import InterestIndex from '../components/profile/interest-index';
+import MembershipIndex from '../components/profile/membership-index';
 
 class Profile extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class Profile extends Component {
   render () {
     return (
       <div>
-        <UserProfile profile={this.state.profile} />
+        <UserInformation profile={this.state.profile} />
         <InterestIndex interests={this.state.interests} />
         <MembershipIndex memberships={this.state.memberships} />
       </div>

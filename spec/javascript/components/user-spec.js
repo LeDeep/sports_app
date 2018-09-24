@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, configure } from 'enzyme';
 import { expect } from 'chai';
 import Adapter from 'enzyme-adapter-react-16';
-import User from '../../../app/javascript/components/user';
+import User from '../../../app/javascript/components/users/user';
 configure({adapter: new Adapter()});
 
 describe("User", () => {

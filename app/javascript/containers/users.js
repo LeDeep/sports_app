@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import UserIndex from '../components/user-index';
+import UserIndex from '../components/users/user-index';
 
 class Users extends Component {
   constructor() {

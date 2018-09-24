@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, configure } from 'enzyme';
 import { expect } from 'chai';
 import Adapter from 'enzyme-adapter-react-16';
-import Header from '../../../app/javascript/components/header';
+import Header from '../../../app/javascript/components/presentation/header';
 configure({adapter: new Adapter()});
 
 describe("Header", () => {
