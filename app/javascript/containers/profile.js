@@ -1,12 +1,14 @@
 import React, {Component} from "react";
 import UserProfile from '../components/user-profile';
 import InterestIndex from '../components/interest-index';
+import MembershipIndex from '../components/membership-index';
 
 class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       interests: [],
+      memberships: [],
       profile: {
         id: this.props.match.params.id
       }
@@ -22,6 +24,11 @@ class Profile extends Component {
     .then(response => response.json())
     .then((data) => {this.setState({interests:data})
     })
+
+    fetch('/api/v1/users/user_memberships/' + this.state.profile.id)
+    .then(response => response.json())
+    .then((data) => {this.setState({memberships:data})
+    })
   };
 
   render () {
@@ -29,6 +36,7 @@ class Profile extends Component {
       <div>
         <UserProfile profile={this.state.profile} />
         <InterestIndex interests={this.state.interests} />
+        <MembershipIndex memberships={this.state.memberships} />
       </div>
     );
   }
