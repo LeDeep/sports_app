@@ -56,7 +56,7 @@ describe Api::V1::UsersController do
     end
 
     it "should route from GET /users/user_interests" do
-      expect({get: "api/v1/users/user_interests"}).to route_to(controller: "api/v1/users", action: "user_interests")
+      expect({get: "api/v1/users/user_interests/1"}).to route_to(controller: "api/v1/users", action: "user_interests", id: "1")
     end
 
     it "returns the users interests" do
@@ -75,7 +75,7 @@ describe Api::V1::UsersController do
     end
 
     it "should route from GET /users/user_memberships" do
-      expect({get: "api/v1/users/user_memberships"}).to route_to(controller: "api/v1/users", action: "user_memberships")
+      expect({get: "api/v1/users/user_memberships/1"}).to route_to(controller: "api/v1/users", action: "user_memberships", id: "1")
     end
 
     it "returns the users memberships" do
