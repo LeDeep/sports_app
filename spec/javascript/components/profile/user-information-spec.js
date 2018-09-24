@@ -2,10 +2,11 @@ import React from 'react';
 import { shallow, configure } from 'enzyme';
 import { expect } from 'chai';
 import Adapter from 'enzyme-adapter-react-16';
-import User from '../../../app/javascript/components/users/user';
+import UserInformation from '../../../../app/javascript/components/profile/user-information';
+import User from '../../../../app/javascript/components/users/user';
 configure({adapter: new Adapter()});
 
-describe("User", () => {
+describe("UserInformation", () => {
   const wrapper = shallow(<User
     first_name='Andrew'
     last_name='Luck'
@@ -36,5 +37,4 @@ describe("User", () => {
     expect(wrapper.contains('6')).to.equal(true);
     expect(wrapper.contains('5')).to.equal(true);
     expect(wrapper.contains('240')).to.equal(true);
-  });
-});
+  });});
