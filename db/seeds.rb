@@ -21,11 +21,13 @@ teams = Team.create([
 ])
 
 sports = Sport.create([
-  {name: "Football", icon: File.new(File.join(Rails.root, "/public/images/football.png"))},
-  {name: "Soccer", icon: File.new(File.join(Rails.root, "/public/images/soccer.png"))},
-  {name: "Basketball", icon: File.new(File.join(Rails.root, "/public/images/basketball.png"))},
-  {name: "Baseball", icon: File.new(File.join(Rails.root, "/public/images/baseball.png"))},
-  {name: "Tennis", icon: File.new(File.join(Rails.root, "/public/images/tennis.png"))},
+  {name: "Football", icon: "football-ball"},
+  {name: "Soccer", icon: "futbol"},
+  {name: "Basketball", icon: "basketball-ball"},
+  {name: "Baseball", icon: "baseball-ball"},
+  {name: "Hockey", icon: "hockey-puck"},
+  {name: "Cycling", icon: "bicycle"},
+  {name: "Quidditch", icon: "quidditch"}
 ])
 
 memberships = Membership.create([
@@ -45,11 +47,20 @@ interests = Interest.create([
   {user_id: 1, sport_id: 2},
   {user_id: 1, sport_id: 3},
   {user_id: 1, sport_id: 4},
+  {user_id: 1, sport_id: 5},
+  {user_id: 1, sport_id: 6},
+  {user_id: 1, sport_id: 7},
   {user_id: 2, sport_id: 1},
   {user_id: 2, sport_id: 2},
+  {user_id: 2, sport_id: 5},
+  {user_id: 2, sport_id: 6},
   {user_id: 3, sport_id: 3},
   {user_id: 3, sport_id: 4},
+  {user_id: 3, sport_id: 5},
+  {user_id: 3, sport_id: 7},
   {user_id: 4, sport_id: 2},
   {user_id: 4, sport_id: 3},
   {user_id: 4, sport_id: 4},
+  {user_id: 4, sport_id: 6},
+  {user_id: 4, sport_id: 7}
 ])
