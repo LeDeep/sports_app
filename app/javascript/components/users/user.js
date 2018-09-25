@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 class User extends Component {
   render() {
+    var profileUrl = '/profile/' + this.props.id
     return(
       <div className='user-index'>
-        <p id='user-name'>{this.props.first_name} {this.props.last_name}</p>
-        <p id='user-email'>{this.props.email}</p>
-        <p id='user-height-weight'>{this.props.height_feet}'{this.props.height_inches} {this.props.weight}</p>
+        <p id='user-name'><Link to={profileUrl}>{this.props.first_name} {this.props.last_name}</Link></p>
       </div>
     )
   }

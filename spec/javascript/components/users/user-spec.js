@@ -7,6 +7,7 @@ configure({adapter: new Adapter()});
 
 describe("User", () => {
   const wrapper = shallow(<User
+    id='3'
     first_name='Andrew'
     last_name='Luck'
     email='andrew@luck.com'
@@ -26,15 +27,7 @@ describe("User", () => {
     expect(wrapper.contains('Luck')).to.equal(true);
   });
 
-  it('renders user email', () => {
-    expect(wrapper.find('p#user-email')).to.have.lengthOf(1);
-    expect(wrapper.contains('andrew@luck.com')).to.equal(true);
-  });
-
-  it('renders user height and weight', () => {
-    expect(wrapper.find('p#user-height-weight')).to.have.lengthOf(1);
-    expect(wrapper.contains('6')).to.equal(true);
-    expect(wrapper.contains('5')).to.equal(true);
-    expect(wrapper.contains('240')).to.equal(true);
+  it('includes link to users profile', function() {
+    expect(wrapper.find('Link').prop('to')).to.be.equal('/profile/3');
   });
 });
