@@ -7,7 +7,7 @@ configure({adapter: new Adapter()});
 
 describe("UserInformation", () => {
   const props = {
-    profile: {
+    userInfo: {
       first_name:'Andrew',
       last_name:'Luck',
       email:'andrew@luck.com',

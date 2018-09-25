@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Header from '../components/presentation/header';
+import PageHeader from '../components/presentation/page-header';
 import Footer from '../components/presentation/footer';
 import Users from './users';
 import Profile from './profile';
@@ -9,7 +9,7 @@ class App extends Component {
   render () {
     return (
       <div>
-        <Header />
+        <PageHeader />
           <BrowserRouter>
             <div>
               <Route exact path="/" component={Users} />
