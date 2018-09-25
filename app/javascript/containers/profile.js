@@ -16,7 +16,8 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/v1/users/' + this.state.profile.id).then(response => response.json())
+    fetch('/api/v1/users/' + this.state.profile.id)
+    .then(response => response.json())
     .then((data) => {this.setState({profile:data})
     })
 

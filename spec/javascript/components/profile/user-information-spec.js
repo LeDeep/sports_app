@@ -3,22 +3,27 @@ import { shallow, configure } from 'enzyme';
 import { expect } from 'chai';
 import Adapter from 'enzyme-adapter-react-16';
 import UserInformation from '../../../../app/javascript/components/profile/user-information';
-import User from '../../../../app/javascript/components/users/user';
 configure({adapter: new Adapter()});
 
 describe("UserInformation", () => {
-  const wrapper = shallow(<User
-    first_name='Andrew'
-    last_name='Luck'
-    email='andrew@luck.com'
-    height_feet='6'
-    height_inches='5'
-    weight='240'
+  const props = {
+    profile: {
+      first_name:'Andrew',
+      last_name:'Luck',
+      email:'andrew@luck.com',
+      height_feet:'6',
+      height_inches:'5',
+      weight:'240'
+    }
+  }
+
+  const wrapper = shallow(<UserInformation
+    {...props}
     />
   );
 
   it('renders user component', () => {
-    expect(wrapper.find('div.user-index')).to.have.lengthOf(1);
+    expect(wrapper.find('div.user-profile')).to.have.lengthOf(1);
   });
 
   it('renders user name', () => {
@@ -37,4 +42,5 @@ describe("UserInformation", () => {
     expect(wrapper.contains('6')).to.equal(true);
     expect(wrapper.contains('5')).to.equal(true);
     expect(wrapper.contains('240')).to.equal(true);
-  });});
+  });
+});
