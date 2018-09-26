@@ -14,6 +14,12 @@ class Api::V1::UsersController < ApplicationController
     render json: user
   end
 
+  def update
+    user = User.find(params[:id])
+    user.update_attributes(user_params)
+    render json: user
+  end
+
   def user_interests
     interests = user_interests_mapper.find_interests_by_user_id(params[:id].to_i)
     render json: interests

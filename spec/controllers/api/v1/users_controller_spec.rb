@@ -57,6 +57,12 @@ describe Api::V1::UsersController do
     end
   end
 
+  describe "#update" do
+    it "should route from PUT /users" do
+      expect({put: "api/v1/users/1"}).to route_to(controller: "api/v1/users", action: "update", id: "1")
+    end
+  end
+
   describe "#user_interests" do
     let(:mapper) { instance_double("UserInterestsMapper") }
     let(:sport) { FactoryBot.create(:sport) }
