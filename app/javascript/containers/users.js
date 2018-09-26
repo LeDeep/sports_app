@@ -3,8 +3,6 @@ import UserIndex from '../components/users/user-index';
 import { Container } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 
-
-
 class Users extends Component {
   constructor() {
     super();

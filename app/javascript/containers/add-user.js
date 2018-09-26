@@ -22,7 +22,7 @@ class AddUser extends Component {
       this.addNewUser(data)
     })
   }
-  
+
    addNewUser = (user) => {
     this.setState({
       users: this.state.users.concat(user)
