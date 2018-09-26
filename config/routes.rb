@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       end
 
       resources :sports, only: [:index]
+      resources :teams, only: [:index]
     end
   end
   get "*path" => "main#index", via: :all
