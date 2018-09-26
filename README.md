@@ -28,10 +28,21 @@ You’re a sports and activities junkie! You belong to two or more teams. You wa
   
 ## Candidate Notes
 
-URL: https://your-deployed-application
+URL: https://sleepy-fjord-28068.herokuapp.com/
 
-### Instructions
-Use this section if we need to know of any special instructions necessary to run your app.
+### Instructions For Running the App Locally
+1. Clone the repo
+2. [Install Yarn](https://yarnpkg.com/en/docs/install#mac-stable), if it's not already.
+3. [Install Foreman](https://github.com/ddollar/foreman)
+3. Run following commands:
+
+    ```
+    yarn Install
+    bundle Install
+    rake db:migrate
+    rake db:seed (if you want to start with some transactions)
+    foreman start -f Procfile.dev -p 3000
+    ```
 
 ### Notes
 - Setting up the frontend test framework with enzyme and jest was unreasonably cumbersome. Seemed like an easier approach, with far less configuration and added packages, should have worked. Decided to go ahead with what did work, in order to get some tests written. Will revist this section if time permits. I think the test environment can be cleaned up and simplified.
