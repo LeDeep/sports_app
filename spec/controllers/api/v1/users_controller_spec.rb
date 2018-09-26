@@ -12,7 +12,7 @@ describe Api::V1::UsersController do
       expect({get: "api/v1/users"}).to route_to(controller: "api/v1/users", action: "index")
     end
 
-    it "returns all transactions" do
+    it "returns all users" do
       get :index, params: {}
       expect(User.count).to eq 1
     end
@@ -43,6 +43,17 @@ describe Api::V1::UsersController do
       expect(body["height_feet"]).to eq (user.height_feet)
       expect(body["height_inches"]).to eq (user.height_inches)
       expect(body["weight"]).to eq (user.weight)
+    end
+  end
+
+  describe "#create" do
+    it "routes from POST /api/v1/users" do
+      expect({ :post => "/api/v1/users" }).to route_to(:controller => "api/v1/users", :action => "create")
+    end
+
+    it "responds with http status 200" do
+      post :create, params: {user: {id: user.id}}
+      expect(response.status).to eq 200
     end
   end
 

@@ -8,6 +8,11 @@ class Api::V1::UsersController < ApplicationController
     render json: @user
   end
 
+  def create
+    user = User.create(user_params)
+    render json: user
+  end
+
   def user_interests
     interests = user_interests_mapper.find_interests_by_user_id(params[:id].to_i)
     render json: interests
@@ -28,7 +33,7 @@ class Api::V1::UsersController < ApplicationController
     @user_memberships_mapper ||= UserMembershipsMapper.new
   end
 
-  def transaction_params
+  def user_params
     params.require(:user).permit(:id, :first_name, :last_name, :email, :height_feet, :height_inches, :weight)
   end
 end
