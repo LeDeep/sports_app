@@ -38,6 +38,24 @@ class Profile extends Component {
     })
   };
 
+  handleUserUpdate = (user) => {
+    fetch('/api/v1/users/' + user.id, {
+      method: 'PUT',
+      body: JSON.stringify({user}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => {
+      this.updateUser(user)
+    })
+  }
+
+  updateUser = (user) => {
+    fetch('/api/v1/users/' + user.id).then(resp => resp.json()).then(data => {
+      this.setState({userInfo:data})
+    })
+  }
+
   render () {
     return (
       <Container>
@@ -47,7 +65,7 @@ class Profile extends Component {
           <Grid.Row>
             <Grid.Column>
               <UserInformationHeader userInfo={this.state.userInfo} />
-              <UserInformation userInfo={this.state.userInfo} />
+              <UserInformation userInfo={this.state.userInfo} handleUserUpdate={this.handleUserUpdate} />
             </Grid.Column>
             <Grid.Column>
               <UserInterestsHeader userInfo={this.state.userInfo} />
