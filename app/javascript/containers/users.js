@@ -1,5 +1,9 @@
 import React, {Component} from "react";
 import UserIndex from '../components/users/user-index';
+import { Container } from 'semantic-ui-react';
+import { Link } from 'react-router-dom'
+
+
 
 class Users extends Component {
   constructor() {
@@ -17,9 +21,11 @@ class Users extends Component {
 
   render () {
     return (
-      <div>
+      <Container>
+        <h3>Here is our current roster of athletes.</h3>
+        <h4>Create your <Link to='/users/new'>profile</Link> to add your name to the list!</h4>
         <UserIndex users={this.state.users} />
-      </div>
+      </Container>
     );
   }
 }
