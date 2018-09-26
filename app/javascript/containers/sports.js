@@ -3,7 +3,7 @@ import SportIndex from '../components/sports/sport-index';
 import { Container } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 
-class Users extends Component {
+class Sports extends Component {
   constructor() {
     super();
     this.state = {
@@ -24,4 +24,4 @@ class Users extends Component {
   }
 }
 
-export default Users;
+export default Sports;
