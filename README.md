@@ -39,8 +39,7 @@ URL: https://sleepy-fjord-28068.herokuapp.com/
     ```
     yarn Install
     bundle Install
-    rake db:migrate
-    rake db:seed
+    rake db:create db:migrate db:seed
     foreman start -f Procfile.dev -p 3000
     ```
 
