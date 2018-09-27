@@ -5,12 +5,12 @@ default: &default
 
 development:
   <<: *default
-  database: sport_up_database
+  database: sport_up_development
 
 test:
   <<: *default
-  database: sport_up_database
+  database: sport_up_test
 
 production:
   <<: *default
-  database: sport_up_database
+  database: sport_up_production
