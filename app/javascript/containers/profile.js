@@ -7,6 +7,7 @@ import UserInterestsHeader from '../components/presentation/user-interests-heade
 import UserTeamsHeader from '../components/presentation/user-teams-header';
 import UserProfileHeader from '../components/presentation/user-profile-header';
 import EditSportsSelections from '../components/sports/edit-sports-selections';
+import EditTeamsSelections from '../components/teams/edit-teams-selections';
 import { Grid, Header, Divider, Container, Button } from 'semantic-ui-react';
 
 class Profile extends Component {
@@ -14,6 +15,7 @@ class Profile extends Component {
     super(props);
     this.state = {
       sports: [],
+      teams: [],
       interests: [],
       memberships: [],
       userInfo: [],
@@ -21,7 +23,8 @@ class Profile extends Component {
         id: this.props.match.params.id
       },
       editable: false,
-      sportId: null
+      sportId: null,
+      teamId: null
     };
   };
 
@@ -30,6 +33,10 @@ class Profile extends Component {
   };
 
   handleInterestEdit = () => {
+    this.editableToggle()
+  };
+
+  handleMembershipEdit = () => {
     this.editableToggle()
   };
 
@@ -51,6 +58,10 @@ class Profile extends Component {
 
     fetch('/api/v1/sports.json').then(response => response.json())
     .then((data) => {this.setState({sports:data})
+    })
+
+    fetch('/api/v1/teams.json').then(response => response.json())
+    .then((data) => {this.setState({teams:data})
     })
   };
 
@@ -97,6 +108,31 @@ class Profile extends Component {
     })
   }
 
+  handleMembershipUpdate = (memberships) => {
+    for(var i = 0; i < memberships.length; i++) {
+      for(var i = 0; i < this.state.teams.length; i++) {
+        if(memberships.includes(this.state.teams[i].name)) {
+          this.state.teamId = this.state.teams[i].id
+        }
+      }
+    }
+    fetch('/api/v1/users/add_memberships/' + this.state.profile.id + '/team/' + this.state.teamId, {
+      method: 'POST',
+      body: JSON.stringify({memberships}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => {
+      this.updateMembership(memberships)
+    })
+  };
+
+  updateMembership = (memberships) => {
+    fetch('/api/v1/users/user_memberships/' + this.state.profile.id).then(resp => resp.json()).then(data => {
+      this.setState({memberships:data})
+    })
+  }
+
   render () {
     const buttonText = (
       this.state.editable ? 'Save' : 'Edit'
@@ -119,7 +155,8 @@ class Profile extends Component {
             </Grid.Column>
             <Grid.Column>
               <UserTeamsHeader userInfo={this.state.userInfo} />
-              <MembershipIndex memberships={this.state.memberships} />
+              {this.state.editable ? <EditTeamsSelections teams={this.state.teams} handleMembershipUpdate={this.handleMembershipUpdate} />: <MembershipIndex memberships={this.state.memberships} />}
+              <Button onClick={() => this.handleMembershipEdit()}>{buttonText}</Button>
             </Grid.Column>
           </Grid.Row>
         </Grid>
