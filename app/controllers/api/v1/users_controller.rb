@@ -30,6 +30,12 @@ class Api::V1::UsersController < ApplicationController
     render json: memberships
   end
 
+  def add_interests
+    sport = Sport.find(params[:sport_id])
+    user = User.find(params[:user_id])
+    user.sports << sport
+  end
+
   private
 
   def user_interests_mapper

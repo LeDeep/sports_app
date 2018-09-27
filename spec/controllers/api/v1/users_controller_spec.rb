@@ -100,4 +100,17 @@ describe Api::V1::UsersController do
       get :user_memberships, params: { id: user.id }
     end
   end
+
+  describe "#add_interest" do
+    let(:sport) { FactoryBot.create(:sport, {id: 1}) }
+
+    it "should route from POST /users/add_interest" do
+      expect({post: "api/v1/users/add_interests/1/sport/1"}).to route_to(controller: "api/v1/users", action: "add_interests", user_id: "1", sport_id: "1")
+    end
+
+    it "associates the sport with the user" do
+      post :add_interests, params: {user_id: user.id, sport_id: sport.id}
+      expect(user.sports).to include(sport)
+    end
+  end
 end
