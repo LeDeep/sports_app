@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, Message } from 'semantic-ui-react';
+import { Redirect } from 'react-router-dom';
 
  class NewUserForm extends Component {
   constructor() {
@@ -10,7 +11,8 @@ import { Button, Form, Message } from 'semantic-ui-react';
       email: '',
       height_feet: '',
       height_inches: '',
-      weight: ''
+      weight: '',
+      redirect: false
     }
   }
 
@@ -53,9 +55,15 @@ import { Button, Form, Message } from 'semantic-ui-react';
    addUser = () => {
     let user = {first_name: this.state.first_name, last_name: this.state.last_name, email: this.state.email, height_feet: this.state.height_feet, height_inches: this.state.height_inches, weight: this.state.weight}
     this.props.handleNewUser(user)
+    this.setState({redirect: true})
   }
 
   render(){
+    if(this.state.redirect) {
+      return (
+        <Redirect to="/" />
+      )
+    }
     return (
       <div>
         <h3>Complete the information below to create your profile.</h3>
