@@ -36,6 +36,12 @@ class Api::V1::UsersController < ApplicationController
     user.sports << sport
   end
 
+  def add_memberships
+    team = Team.find(params[:team_id])
+    user = User.find(params[:user_id])
+    user.teams << team
+  end
+
   private
 
   def user_interests_mapper

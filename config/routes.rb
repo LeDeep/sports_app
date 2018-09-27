@@ -7,6 +7,7 @@ Rails.application.routes.draw do
           get '/user_interests/:id', to: 'users#user_interests'
           get '/user_memberships/:id', to: 'users#user_memberships'
           post '/add_interests/:user_id/sport/:sport_id', to: 'users#add_interests'
+          post '/add_memberships/:user_id/team/:team_id', to: 'users#add_memberships'
         end
       end
 
