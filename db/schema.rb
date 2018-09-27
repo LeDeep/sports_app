@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20180921212818) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "interests", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "sport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["sport_id"], name: "index_interests_on_sport_id"
-    t.index ["user_id"], name: "index_interests_on_user_id"
+    t.index ["sport_id"], name: "index_interests_on_sport_id", using: :btree
+    t.index ["user_id"], name: "index_interests_on_user_id", using: :btree
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -26,8 +29,8 @@ ActiveRecord::Schema.define(version: 20180921212818) do
     t.integer  "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["team_id"], name: "index_memberships_on_team_id"
-    t.index ["user_id"], name: "index_memberships_on_user_id"
+    t.index ["team_id"], name: "index_memberships_on_team_id", using: :btree
+    t.index ["user_id"], name: "index_memberships_on_user_id", using: :btree
   end
 
   create_table "sports", force: :cascade do |t|
